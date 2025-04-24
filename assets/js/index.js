@@ -68,7 +68,7 @@ document.querySelectorAll('.faq-question').forEach((btn) => {
         document.querySelectorAll('.faq-answer').forEach((el) => {
             if (el !== answer) {
                 el.classList.remove('open');
-                el.style.maxHeight = null;
+                // el.style.maxHeight = null;
             }
         });
 
@@ -79,11 +79,11 @@ document.querySelectorAll('.faq-question').forEach((btn) => {
         // Переключение текущего
         if (answer.classList.contains('open')) {
             answer.classList.remove('open');
-            answer.style.maxHeight = null;
+            // answer.style.maxHeight = null;
             icon.textContent = '+';
         } else {
             answer.classList.add('open');
-            answer.style.maxHeight = answer.scrollHeight + "px";
+            // answer.style.maxHeight = answer.scrollHeight + "px";
             icon.textContent = '×';
         }
     });

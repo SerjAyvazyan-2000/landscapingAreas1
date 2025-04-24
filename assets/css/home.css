@@ -310,6 +310,7 @@
 
 .faq-answer.open {
     padding: 15px 20px;
+    max-height: 500px;
 }
 
 .faq-answer p {
