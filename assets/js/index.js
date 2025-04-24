@@ -59,10 +59,33 @@ window.addEventListener('scroll', function () {
     }
 });
 
-document.querySelectorAll('.faq-question').forEach(button => {
-    button.addEventListener('click', () => {
-        const faqItem = button.parentElement;
-        faqItem.classList.toggle('active');
+document.querySelectorAll('.faq-question').forEach((btn) => {
+    btn.addEventListener('click', () => {
+        const answer = btn.nextElementSibling;
+        const icon = btn.querySelector('.icon');
+
+        // Закрыть все
+        document.querySelectorAll('.faq-answer').forEach((el) => {
+            if (el !== answer) {
+                el.classList.remove('open');
+                el.style.maxHeight = null;
+            }
+        });
+
+        document.querySelectorAll('.faq-question .icon').forEach(i => {
+            if (i !== icon) i.textContent = '+';
+        });
+
+        // Переключение текущего
+        if (answer.classList.contains('open')) {
+            answer.classList.remove('open');
+            answer.style.maxHeight = null;
+            icon.textContent = '+';
+        } else {
+            answer.classList.add('open');
+            answer.style.maxHeight = answer.scrollHeight + "px";
+            icon.textContent = '×';
+        }
     });
 });
 
